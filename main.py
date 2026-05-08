@@ -1,8 +1,4 @@
-"""
-AI-Powered YouTube RAG Chatbot
-Author: Tanishq Pareek
-GitHub: github.com/tanishqpareek
-"""
+
 
 from youtube_transcript_api import YouTubeTranscriptApi, TranscriptsDisabled
 from langchain_text_splitters import RecursiveCharacterTextSplitter
@@ -19,9 +15,9 @@ from dotenv import load_dotenv
 load_dotenv()
 
 
-# ─────────────────────────────────────────────
+
 # STEP 1: Fetch YouTube Transcript
-# ─────────────────────────────────────────────
+
 
 def fetch_transcript(video_id: str) -> str:
     """
@@ -40,9 +36,9 @@ def fetch_transcript(video_id: str) -> str:
         raise ValueError(f"❌ Error fetching transcript: {e}")
 
 
-# ─────────────────────────────────────────────
+
 # STEP 2: Split Transcript into Chunks
-# ─────────────────────────────────────────────
+
 
 def create_chunks(transcript: str):
     """
@@ -60,9 +56,9 @@ def create_chunks(transcript: str):
     return chunks
 
 
-# ─────────────────────────────────────────────
+
 # STEP 3: Create Embeddings + Vector Store
-# ─────────────────────────────────────────────
+
 
 def build_vector_store(chunks):
     """
@@ -76,9 +72,9 @@ def build_vector_store(chunks):
     return vector_store
 
 
-# ─────────────────────────────────────────────
+
 # STEP 4: Build the RAG Chain
-# ─────────────────────────────────────────────
+
 
 def build_rag_chain(vector_store):
     """
@@ -118,7 +114,7 @@ Answer:
         input_variables=["context", "question"]
     )
 
-    # LLM — using Google Gemini (free tier)
+    # LLM — using Google Gemini 
     llm = ChatGoogleGenerativeAI(
         model="gemini-2.0-flash",
         google_api_key=os.environ.get("GOOGLE_API_KEY"),
@@ -143,9 +139,9 @@ Answer:
     return main_chain
 
 
-# ─────────────────────────────────────────────
+
 # STEP 5: Main Application
-# ─────────────────────────────────────────────
+
 
 def main():
     print("=" * 55)
