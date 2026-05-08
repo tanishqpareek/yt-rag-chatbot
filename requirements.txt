@@ -1,0 +1,14 @@
+youtube-transcript-api
+langchain
+langchain-community
+langchain-text-splitters
+langchain-huggingface
+langchain-google-genai
+langchain-core
+faiss-cpu
+sentence-transformers
+google-generativeai
+fastapi
+uvicorn
+python-dotenv
+pydantic
