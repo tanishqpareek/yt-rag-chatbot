@@ -1,4 +1,4 @@
-# 🎬 YouTube RAG Chatbot
+[# 🎬 YouTube RAG Chatbot
 
 An AI-powered chatbot that answers questions about any YouTube video using **Retrieval-Augmented Generation (RAG)**.
 
@@ -25,6 +25,15 @@ Inject chunks into prompt → Send to LLM (Gemini)
       ↓
 Grounded, accurate answer ✅
 ```
+## 💡 Why I Built This
+I was watching a long YouTube lecture and didn't want to sit through 2 hours 
+just to find one answer. So I built this.
+
+## 🤯 What I Learned
+This was my first time working with RAG pipelines. Figuring out chunk size 
+and overlap took way more trial and error than I expected. Also got stuck 
+getting FAISS to work on Windows for a while.
+
 
 ---
 
@@ -181,3 +190,4 @@ POST /ask
 ## 📄 License
 
 This project is open source and available under the [MIT License](LICENSE).
+](https://www.linkedin.com/in/tanishq-pareek-8ba80128b/)
