@@ -13,3 +13,4 @@ uvicorn
 python-dotenv
 pydantic
 langchain-groq
+streamlit
