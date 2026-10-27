@@ -9,6 +9,22 @@ import requests
 import re
 
 API_BASE = "http://localhost:8000"
+import threading
+import time
+import uvicorn
+
+
+@st.cache_resource
+def start_api():
+    import api  # your api.py
+    config = uvicorn.Config(api.app, host="127.0.0.1", port=8000, log_level="warning")
+    server = uvicorn.Server(config)
+    threading.Thread(target=server.run, daemon=True).start()
+    time.sleep(3)  # give the server a moment to start
+    return True
+
+
+start_api()
 
 # ── Page Config ──────────────────────────────
 st.set_page_config(
