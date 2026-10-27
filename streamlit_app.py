@@ -23,7 +23,7 @@ import uvicorn
 API_BASE = "http://localhost:8000"
 
 
-@st.cache_resource(show_spinner=False)
+@st.cache_resource(show_spinner="Starting the app, the first load takes about a minute...")
 def start_api():
     import api  # your api.py
     config = uvicorn.Config(api.app, host="127.0.0.1", port=8000, log_level="warning")
