@@ -1,3 +1,4 @@
+from pathlib import Path
 from youtube_transcript_api import YouTubeTranscriptApi, TranscriptsDisabled
 from langchain_text_splitters import RecursiveCharacterTextSplitter
 from langchain_community.vectorstores import FAISS
@@ -13,11 +14,18 @@ load_dotenv()
 
 
 # step 1 - get the transcript from youtube
+SAVED_DIR = Path(__file__).parent / "transcripts"
+
 def fetch_transcript(video_id: str) -> str:
+    # use a saved transcript first (YouTube blocks cloud servers)
+    saved = SAVED_DIR / f"{video_id}.txt"
+    if saved.exists():
+        transcript = saved.read_text(encoding="utf-8")
+        print(f"loaded saved transcript — {len(transcript)} characters")
+        return transcript
     try:
         ytt = YouTubeTranscriptApi()
         transcript_list = ytt.fetch(video_id)
-        # joining all caption pieces into one big string
         transcript = " ".join(chunk.text for chunk in transcript_list)
         print(f"got transcript — {len(transcript)} characters")
         return transcript
