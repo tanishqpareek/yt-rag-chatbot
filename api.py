@@ -302,7 +302,10 @@ Tell me when it’s committed. Do you want the full main.py and streamlit_app.py
 
 
 Claude is AI and can make mistakes. Please double-check responses.
-
+       return {
+           "loaded_videos": list(loaded_videos.keys()),
+           "count": len(loaded_videos)
+       }
 
 
 
