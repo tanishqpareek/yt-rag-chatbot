@@ -90,9 +90,9 @@ Answer:
     )
 
     llm = ChatGroq(
-        model="llama-3.3-70b-versatile",
-        api_key=os.environ.get("GROQ_API_KEY"),
-        temperature=0.2
+        model=os.environ.get("GROQ_MODEL", "openai/gpt-oss-120b"),
+       api_key=os.environ.get("GROQ_API_KEY"),
+       temperature=0.2
     )
 
     parser = StrOutputParser()
